@@ -11,25 +11,12 @@
 </main>
 
 <style>
-  :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #111;
-  }
-
-  *,
-  *::after,
-  *::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
   main {
     display: flex;
-    height: 97vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
   }
 
   .timer {
