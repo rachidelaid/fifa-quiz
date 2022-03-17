@@ -1,10 +1,13 @@
 <script>
   import Plan from './lib/Plan.svelte';
+  import list from './db.json';
+
+  const index = Math.floor(Math.random() * list.length);
 </script>
 
 <main>
   <div class="timer" />
-  <Plan />
+  <Plan team={list[index]} />
 </main>
 
 <style>

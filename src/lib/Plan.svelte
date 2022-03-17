@@ -1,12 +1,33 @@
 <script>
   import bg from '../assets/half.png';
+  import { onMount } from 'svelte';
+  export let team;
+
+  onMount(() => {
+    console.log(team);
+    team.players.forEach((player) => {
+      const img = document.createElement('img');
+      img.title = `(${player.position}) ${player.nation}`;
+      img.src = player.flag;
+      img.style = `
+        width: 70px;
+        height: 70px;
+        border: 1px solid #000;
+        border-radius: 50%;
+      `;
+      console.log(player.position);
+      document.querySelector(`.${player.position}`).append(img);
+    });
+  });
 </script>
 
 <div class="plan">
   <img src={bg} alt="plan bg" />
   <div class="sections">
     <div class="row">
-      <div class="CF" />
+      <div class="LF" />
+      <div class="CF ST RS LS" />
+      <div class="RF" />
     </div>
     <div class="row">
       <div class="LW" />
@@ -15,7 +36,7 @@
     </div>
     <div class="row">
       <div class="LM" />
-      <div class="AM" />
+      <div class="AM CAM" />
       <div class="RM" />
     </div>
     <div class="row">
@@ -24,15 +45,14 @@
       <div class="RCM" />
     </div>
     <div class="row">
+      <div class="LDM" />
       <div class="CDM" />
+      <div class="RDM" />
     </div>
     <div class="row">
-      <div class="LWB" />
-      <div class="LB" />
-      <div class="LCB" />
-      <div class="RCB" />
-      <div class="RB" />
-      <div class="RWB" />
+      <div class="LB LWB" />
+      <div class="LCB RCB CB" />
+      <div class="RB RWB" />
     </div>
     <div class="row">
       <div class="GK" />
@@ -50,6 +70,7 @@
   .plan img {
     width: 100%;
     height: 100%;
+    opacity: 0.7;
   }
 
   .sections {
@@ -61,11 +82,9 @@
     grid-template-rows: repeat(7, 1fr);
     width: 100%;
     height: 100%;
-    gap: 2px;
   }
 
   .sections .row {
-    background-color: rgba(255, 0, 0, 0.7);
     height: 100%;
     width: 100%;
     display: flex;
@@ -73,10 +92,10 @@
   }
 
   .sections .row div {
-    border: 2px solid #000;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
   }
 </style>
