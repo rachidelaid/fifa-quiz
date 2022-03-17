@@ -16,7 +16,6 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
   }
 
   .timer {
