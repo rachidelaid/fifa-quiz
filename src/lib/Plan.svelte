@@ -3,27 +3,6 @@
   import { onMount } from 'svelte';
   export let team;
 
-  const showDetails = () => {
-    document.querySelectorAll('.sections img').forEach((img) => img.remove());
-
-    team.players.forEach((player) => {
-      const div = document.createElement('div');
-      div.className = 'player';
-
-      const img = document.createElement('img');
-      img.title = `(${player.position}) ${player.nation}`;
-      img.src = player.avatar;
-      img.className = 'flag';
-      div.append(img);
-
-      const p = document.createElement('p');
-      p.textContent = player.name;
-      div.append(p);
-
-      document.querySelector(`.${player.position}`).append(div);
-    });
-  };
-
   onMount(() => {
     console.log(team);
     team.players.forEach((player) => {

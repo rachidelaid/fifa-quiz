@@ -8,8 +8,30 @@
   let answer = false;
   let win = false;
 
+  const showDetails = () => {
+    document.querySelectorAll('.sections img').forEach((img) => img.remove());
+
+    list[index].players.forEach((player) => {
+      const div = document.createElement('div');
+      div.className = 'player';
+
+      const img = document.createElement('img');
+      img.title = `(${player.position}) ${player.nation}`;
+      img.src = player.avatar;
+      img.className = 'flag';
+      div.append(img);
+
+      const p = document.createElement('p');
+      p.textContent = player.name;
+      div.append(p);
+
+      document.querySelector(`.${player.position}`).append(div);
+    });
+  };
+
   const choose = (e) => {
     answer = true;
+    showDetails();
 
     if (e.detail.term === list[index].name) {
       win = true;
