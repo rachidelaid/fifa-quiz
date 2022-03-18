@@ -47,7 +47,7 @@
     <Form names={list.map((t) => t.name)} on:answer={choose} />
     {#if answer}
       <div class="answer">
-        {#if false}
+        {#if win}
           <h1 class="green">YOU WON</h1>
         {:else}
           <h1 class="red">YOU LOSE</h1>
