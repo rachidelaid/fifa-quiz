@@ -39,3 +39,14 @@ img.flag {
   text-align: center;
   width: fit-content;
 }
+
+button {
+  width: 100%;
+  padding: 0.4rem;
+  outline: none;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+}

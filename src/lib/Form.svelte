@@ -1,8 +1,10 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   export let names;
 
-  let choose = false;
+  const dispatch = createEventDispatcher();
 
+  let choose = false;
   let term = '';
 
   const chooseTeam = (e) => {
@@ -20,7 +22,9 @@
     e.preventDefault();
 
     if (choose) {
-      document.querySelector('form button').style.backgroundColor = 'green';
+      dispatch('answer', {
+        term,
+      });
     }
   };
 </script>
@@ -61,17 +65,6 @@
     border-radius: 0.4rem;
     background-color: transparent;
     color: white;
-  }
-
-  button {
-    width: 100%;
-    padding: 0.4rem;
-    outline: none;
-    border: none;
-    border-radius: 0.4rem;
-    background-color: #000;
-    color: white;
-    cursor: pointer;
   }
 
   button:hover {
