@@ -1,12 +1,15 @@
 <script>
   import Plan from './lib/Plan.svelte';
+  import Form from './lib/Form.svelte';
   import list from './db.json';
 
   const index = Math.floor(Math.random() * list.length);
 </script>
 
 <main>
-  <div class="timer" />
+  <div class="side">
+    <Form names={list.map((t) => t.name)} />
+  </div>
   <Plan team={list[index]} />
 </main>
 
@@ -18,7 +21,7 @@
     align-items: center;
   }
 
-  .timer {
-    width: 500px;
+  .side {
+    width: 100%;
   }
 </style>

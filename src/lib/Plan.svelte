@@ -34,10 +34,6 @@
       console.log(player.position);
       document.querySelector(`.${player.position}`).append(img);
     });
-
-    setTimeout(() => {
-      showDetails();
-    }, 10000);
   });
 </script>
 
