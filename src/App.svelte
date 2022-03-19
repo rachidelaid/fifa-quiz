@@ -4,6 +4,7 @@
   import list from './db.json';
 
   $: index = Math.floor(Math.random() * list.length);
+  $: score = 0;
 
   let answer = false;
   let win = false;
@@ -35,10 +36,12 @@
 
     if (e.detail.term === list[index].name) {
       win = true;
+      score = score + 1;
       return;
     }
 
     win = false;
+    score = 0;
   };
 
   const restart = () => {
@@ -52,6 +55,7 @@
 
 <main>
   <div class="side">
+    <h3 class="score">Score: {score}</h3>
     {#if !answer}
       <Form names={list.map((t) => t.name)} on:answer={choose} />
     {/if}
@@ -111,5 +115,13 @@
     width: fit-content;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
+  }
+
+  .score {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-align: center;
+    color: #fff;
   }
 </style>
