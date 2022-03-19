@@ -4,13 +4,11 @@
   export let team;
 
   afterUpdate(() => {
-    console.log(team);
     team.players.forEach((player) => {
       const img = document.createElement('img');
       img.title = `(${player.position}) ${player.nation}`;
       img.src = player.flag;
       img.className = 'flag';
-      console.log(player.position);
       document.querySelector(`.${player.position}`).append(img);
     });
   });
