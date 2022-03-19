@@ -1,9 +1,9 @@
 <script>
   import bg from '../assets/half.png';
-  import { onMount } from 'svelte';
+  import { afterUpdate } from 'svelte';
   export let team;
 
-  onMount(() => {
+  afterUpdate(() => {
     console.log(team);
     team.players.forEach((player) => {
       const img = document.createElement('img');
