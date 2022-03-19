@@ -25,6 +25,9 @@
       dispatch('answer', {
         term,
       });
+
+      choose = false;
+      term = '';
     }
   };
 </script>
