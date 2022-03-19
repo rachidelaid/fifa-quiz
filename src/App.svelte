@@ -52,7 +52,9 @@
 
 <main>
   <div class="side">
-    <Form names={list.map((t) => t.name)} on:answer={choose} />
+    {#if !answer}
+      <Form names={list.map((t) => t.name)} on:answer={choose} />
+    {/if}
     {#if answer}
       <div class="answer">
         {#if win}
