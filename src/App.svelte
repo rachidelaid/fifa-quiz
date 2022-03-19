@@ -3,7 +3,7 @@
   import Form from './lib/Form.svelte';
   import list from './db.json';
 
-  const index = Math.floor(Math.random() * list.length);
+  $: index = Math.floor(Math.random() * list.length);
 
   let answer = false;
   let win = false;
@@ -40,6 +40,14 @@
 
     win = false;
   };
+
+  const restart = () => {
+    document
+      .querySelectorAll('.sections .player')
+      .forEach((div) => div.remove());
+    answer = win = false;
+    index = Math.floor(Math.random() * list.length);
+  };
 </script>
 
 <main>
@@ -56,7 +64,7 @@
         <img src={list[index].image} alt="" />
         <h3>{list[index].name}</h3>
 
-        <button on:click={() => location.reload()}>next</button>
+        <button on:click={restart}>next</button>
       </div>
     {/if}
   </div>
