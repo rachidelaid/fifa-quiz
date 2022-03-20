@@ -12,7 +12,7 @@ this is a football quiz where you have to guess the team based on the formation 
 
 ## Live Link
 
-[Live Link]()
+[Live Link](https://guess-team.netlify.app/)
 
 ## Authors
 
